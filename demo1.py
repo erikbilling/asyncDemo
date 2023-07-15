@@ -1,15 +1,13 @@
 
-from asyncio import run, sleep, create_task
+from time import sleep
 
-async def loopAndSleep(msg, sleepDur):
+def loopAndSleep(msg, sleepDur):
     for i in range(5):
-        await sleep(sleepDur)
+        sleep(sleepDur)
         print(msg,i)
 
-async def main():
-    a = create_task(loopAndSleep('A',1.5))
-    b = create_task(loopAndSleep('B',1))
-    await a
-    await b
+def main():
+    loopAndSleep('A',1)
+    loopAndSleep('B',0.7)
 
-run(main())
+main()
